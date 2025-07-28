@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Ewe Language | Eʋegbe Courses & Resources</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #006b3f; /* Ghana green */
+            --secondary-color: #fcd116; /* Ghana yellow */
+            --accent-color: #ce1126; /* Ghana red */
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 107, 63, 0.9);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .active {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+        
+        .page-title {
+            margin-top: 60px;
+        }
+        
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            color: #ddd;
+        }
+        
+        .breadcrumb li a {
+            color: var(--secondary-color);
+        }
+        
+        /* Hero Section */
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Courses Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .course-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .course-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .course-card:hover .course-img img {
+            transform: scale(1.1);
+        }
+        
+        .course-info {
+            padding: 25px;
+        }
+        
+        .course-level {
+            display: inline-block;
+            padding: 3px 10px;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .course-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Learning Methods */
+        .methods-section {
+            background: linear-gradient(rgba(0, 107, 63, 0.9), rgba(0, 107, 63, 0.9)), url('https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .methods-section .section-title {
+            color: white;
+        }
+        
+        .methods-section .section-title:after {
+            background: var(--secondary-color);
+        }
+        
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .method-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .method-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* Resources Section */
+        .resources-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .resource-item {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resource-item h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Testimonials */
+        .testimonials-section {
+            background-color: white;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 0 15px;
+            text-align: center;
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        /* Signup Section */
+        .signup-section {
+            background: linear-gradient(rgba(206, 17, 38, 0.9), rgba(206, 17, 38, 0.9)), url('https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .signup-section .section-title {
+            color: white;
+        }
+        
+        .signup-section .section-title:after {
+            background: var(--secondary-color);
+        }
+        
+        .signup-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Ewe<span>Culture</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="language.html">Language</a></li>
+                <li><a href="learn-ewe.html" class="active">Learn Ewe</a></li>
+                <li><a href="resources.html">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header>
+        <div class="page-title">
+            <h1>Learn the Ewe Language</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Learn Ewe</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Master Eʋegbe with Our Comprehensive Courses</h2>
+                <p>Discover the beauty of the Ewe language through structured lessons, cultural immersion, and interactive practice. Whether you're a beginner or looking to improve your fluency, we have the right program for you.</p>
+                <a href="#courses" class="btn">View Courses</a>
+                <a href="#signup" class="btn btn-outline">Start Learning Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses-section">
+        <div class="container">
+            <h2 class="section-title">Our Ewe Language Courses</h2>
+            <div class="courses-grid">
+                <!-- Beginner Course -->
+                <div class="course-card">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Beginner Ewe Course">
+                    </div>
+                    <div class="course-info">
+                        <span class="course-level">Beginner</span>
+                        <h3>Ewe Foundations</h3>
+                        <p>Start your journey with basic greetings, essential vocabulary, and simple sentence structures. Perfect for absolute beginners.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 8 Weeks</span>
+                            <span><i class="fas fa-users"></i> Online Class</span>
+                        </div>
+                        <a href="#" class="btn">Enroll Now</a>
+                    </div>
+                </div>
+                
+                <!-- Intermediate Course -->
+                <div class="course-card">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Intermediate Ewe Course">
+                    </div>
+                    <div class="course-info">
+                        <span class="course-level">Intermediate</span>
+                        <h3>Conversational Ewe</h3>
+                        <p>Build confidence in everyday conversations, understand tonal patterns, and expand your vocabulary for practical use.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 10 Weeks</span>
+                            <span><i class="fas fa-users"></i> Online Class</span>
+                        </div>
+                        <a href="#" class="btn">Enroll Now</a>
+                    </div>
+                </div>
+                
+                <!-- Advanced Course -->
+                <div class="course-card">
+                    <div class="course-img">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Advanced Ewe Course">
+                    </div>
+                    <div class="course-info">
+                        <span class="course-level">Advanced</span>
+                        <h3>Ewe Mastery</h3>
+                        <p>Refine your fluency, learn idiomatic expressions, and explore Ewe literature and proverbs with cultural context.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 12 Weeks</span>
+                            <span><i class="fas fa-users"></i> Online Class</span>
+                        </div>
+                        <a href="#" class="btn">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Methods -->
+    <section class="methods-section">
+        <div class="container">
+            <h2 class="section-title">Our Teaching Approach</h2>
+            <div class="methods-grid">
+                <div class="method-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Interactive Lessons</h3>
+                    <p>Live online classes with native speakers using engaging multimedia content and real-life scenarios.</p>
+                </div>
+                <div class="method-card">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Cultural Immersion</h3>
+                    <p>Learn through Ewe songs, stories, and traditions that bring the language to life.</p>
+                </div>
+                <div class="method-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Conversation Practice</h3>
+                    <p>Regular speaking sessions with tutors and fellow students to build confidence.</p>
+                </div>
+                <div class="method-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Flexible Learning</h3>
+                    <p>Access course materials anytime on our mobile-friendly platform with progress tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <h2 class="section-title">Learning Resources</h2>
+            
+            <div class="resources-tabs">
+                <button class="tab-btn active" data-tab="books">Books</button>
+                <button class="tab-btn" data-tab="apps">Apps</button>
+                <button class="tab-btn" data-tab="media">Media</button>
+                <button class="tab-btn" data-tab="tools">Tools</button>
+            </div>
+            
+            <div class="tab-content active" id="books">
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <h4>Basic Ewe for Beginners</h4>
+                        <p>Comprehensive textbook with exercises and audio CD for pronunciation practice.</p>
+                        <a href="#" class="btn">Get Book</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Ewe-English Dictionary</h4>
+                        <p>Most complete reference with over 15,000 entries and example sentences.</p>
+                        <a href="#" class="btn">Get Book</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Ewe Proverbs Explained</h4>
+                        <p>Learn through traditional sayings with cultural context and interpretations.</p>
+                        <a href="#" class="btn">Get Book</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="apps">
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <h4>Ewe Language App</h4>
+                        <p>Interactive vocabulary builder with flashcards and pronunciation guides.</p>
+                        <a href="#" class="btn">Download</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Ewe Phrases Daily</h4>
+                        <p>Learn useful expressions with audio examples from native speakers.</p>
+                        <a href="#" class="btn">Download</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>Ewe Grammar Guide</h4>
+                        <p>Comprehensive reference for verb conjugations and sentence structure.</p>
+                        <a href="#" class="btn">Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Students Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student testimonial">
+                    </div>
+                    <div class="testimonial-text">
+                        "The Ewe Foundations course completely changed my ability to communicate with my grandparents. The cultural context made all the difference!"
+                    </div>
+                    <div class="testimonial-author">- Ama K., Diaspora Learner</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student testimonial">
+                    </div>
+                    <div class="testimonial-text">
+                        "As an anthropologist working in Ghana, these courses gave me the language skills and cultural understanding I needed for my research."
+                    </div>
+                    <div class="testimonial-author">- David R., Academic Researcher</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student testimonial">
+                    </div>
+                    <div class="testimonial-text">
+                        "The tonal pronunciation exercises were incredibly helpful. I can now confidently have basic conversations with market vendors in Ho!"
+                    </div>
+                    <div class="testimonial-author">- Sarah M., Travel Enthusiast</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section id="signup" class="signup-section">
+        <div class="container">
+            <h2 class="section-title">Start Your Ewe Journey Today</h2>
+            <div class="signup-container">
+                <form>
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-level">Course Level</label>
+                        <select id="signup-level" name="level">
+                            <option value="beginner">Beginner - Ewe Foundations</option>
+                            <option value="intermediate">Intermediate - Conversational Ewe</option>
+                            <option value="advanced">Advanced - Ewe Mastery</option>
+                            <option value="notsure">Not Sure - Help Me Choose</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Begin Learning</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About EweCulture</h3>
+                    <p>Dedicated to preserving and promoting the rich cultural heritage of the Ewe people of Ghana and beyond.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="language.html">Language</a></li>
+                        <li><a href="learn-ewe.html">Learn Ewe</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: learn@eweculture.com</p>
+                    <p>Phone: +233 24 123 4567</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 EweCulture. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery and Slick Carousel JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Initialize testimonial slider
+            $('.testimonial-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 5000
+            });
+            
+            // Tab functionality
+            $('.tab-btn').click(function(){
+                $('.tab-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                var tabId = $(this).data('tab');
+                $('.tab-content').removeClass('active');
+                $('#' + tabId).addClass('active');
+            });
+        });
+    </script>
+</body>
+</html>

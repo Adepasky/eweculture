@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ewe Festivals - Celebrating Ghana's Vibrant Culture</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #006b3f; /* Ghana green */
+            --secondary-color: #fcd116; /* Ghana yellow */
+            --accent-color: #ce1126; /* Ghana red */
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 107, 63, 0.9);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .active {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+        
+        .page-title {
+            margin-top: 60px;
+        }
+        
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            color: #ddd;
+        }
+        
+        .breadcrumb li a {
+            color: var(--secondary-color);
+        }
+        
+        /* Festivals Intro */
+        .festivals-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        /* Festival Cards */
+        .festival-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .festival-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .festival-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .festival-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .festival-card:hover .festival-img img {
+            transform: scale(1.1);
+        }
+        
+        .festival-date {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .festival-info {
+            padding: 25px;
+        }
+        
+        .festival-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .festival-info .location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .festival-info .location i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        /* Festival Highlights */
+        .highlights-section {
+            background: linear-gradient(rgba(0, 107, 63, 0.9), rgba(0, 107, 63, 0.9)), url('https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .highlights-section .section-title {
+            color: white;
+        }
+        
+        .highlights-section .section-title:after {
+            background: var(--secondary-color);
+        }
+        
+        .highlight-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .highlight-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            margin: 0 15px;
+        }
+        
+        .highlight-item img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        /* Calendar Section */
+        .calendar-section {
+            background-color: white;
+        }
+        
+        .calendar-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .calendar-month {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+        
+        .calendar-day-header {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            color: var(--primary-color);
+        }
+        
+        .calendar-day {
+            text-align: center;
+            padding: 15px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .calendar-day.has-event {
+            background: rgba(0, 107, 63, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .calendar-day.has-event:hover {
+            background: rgba(0, 107, 63, 0.2);
+        }
+        
+        .calendar-day.has-event::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .calendar-day.event-day {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .calendar-day.event-day::after {
+            background: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .festival-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Ewe<span>Culture</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="festivals.html" class="active">Festivals</a></li>
+                <li><a href="language.html">Language</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header>
+        <div class="page-title">
+            <h1>Ewe Cultural Festivals</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Festivals</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Festivals Intro -->
+    <section class="festivals-intro-section">
+        <div class="container">
+            <div class="festivals-intro">
+                <h2 class="section-title">Celebrating Our Heritage</h2>
+                <p>Ewe festivals are vibrant expressions of our rich cultural heritage, blending history, spirituality, music, dance, and communal celebration. These annual events bring together Ewe communities from Ghana, Togo, and Benin to honor our ancestors, celebrate harvests, and preserve our traditions for future generations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Festivals Grid -->
+    <section class="festivals-main-section">
+        <div class="container">
+            <div class="festival-grid">
+                <!-- Hogbetsotso Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hogbetsotso Festival">
+                        <div class="festival-date">November</div>
+                    </div>
+                    <div class="festival-info">
+                        <h3>Hogbetsotso Festival</h3>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Anlo Land, Volta Region</span>
+                        </div>
+                        <p>The most famous Ewe festival commemorating the migration from Notsie in present-day Togo. Features purification ceremonies, drumming, dancing, and a grand durbar of chiefs.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Asafotu Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Asafotu Festival">
+                        <div class="festival-date">August</div>
+                    </div>
+                    <div class="festival-info">
+                        <h3>Asafotu Festival</h3>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ada, Greater Accra</span>
+                        </div>
+                        <p>A warrior festival celebrated by the Ada people featuring mock battles, military displays, and rituals to honor ancestors and commemorate victories in past wars.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Yam Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Yam Festival">
+                        <div class="festival-date">September</div>
+                    </div>
+                    <div class="festival-info">
+                        <h3>Yam Festival (Te Za)</h3>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Throughout Ewe Land</span>
+                        </div>
+                        <p>A harvest festival to thank the gods for bounty and to purify the people for the new year. Features the offering of new yams, feasting, and traditional dances.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Dzawuwu Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dzawuwu Festival">
+                        <div class="festival-date">March</div>
+                    </div>
+                    <div class="festival-info">
+                        <h3>Dzawuwu Festival</h3>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dzodze, Volta Region</span>
+                        </div>
+                        <p>A planting festival marking the beginning of the farming season with rituals to ensure good harvests, featuring traditional music and dance performances.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Glimetoto Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Glimetoto Festival">
+                        <div class="festival-date">July</div>
+                    </div>
+                    <div class="festival-info">
+                        <h3>Glimetoto Festival</h3>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Peki, Volta Region</span>
+                        </div>
+                        <p>A unique festival featuring acrobatic displays and warrior dances, originally performed to prepare young men for battle and now preserved as cultural heritage.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Sasadu Festival -->
+                <div class="festival-card">
+                    <div class="festival-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sasadu Festival">
+                        <div class="festival-date">December</div>
+                    </div>
+                    <div class="festival-info">
+                        <h3>Sasadu Festival</h3>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Some, Volta Region</span>
+                        </div>
+                        <p>A thanksgiving festival celebrated by the Some people featuring communal feasting, traditional games, and performances of the "Sasadu" dance.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festival Highlights -->
+    <section class="highlights-section">
+        <div class="container">
+            <h2 class="section-title">Festival Highlights</h2>
+            <div class="highlight-slider">
+                <div class="highlight-item">
+                    <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hogbetsotso Dance">
+                    <h3>Agbadza Dance at Hogbetsotso</h3>
+                    <p>The rhythmic Agbadza dance performed during Hogbetsotso, with dancers moving in perfect synchronization to the drum beats.</p>
+                </div>
+                <div class="highlight-item">
+                    <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chiefs Durbar">
+                    <h3>Durbar of Chiefs</h3>
+                    <p>The grand procession of Ewe chiefs in their colorful regalia during festival celebrations, showcasing the rich traditional leadership.</p>
+                </div>
+                <div class="highlight-item">
+                    <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ritual Ceremony">
+                    <h3>Traditional Rituals</h3>
+                    <p>Ancient purification ceremonies performed by priests and priestesses to honor ancestors and seek blessings for the community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festival Calendar -->
+    <section class="calendar-section">
+        <div class="container">
+            <h2 class="section-title">Festival Calendar</h2>
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div class="calendar-month">September 2023</div>
+                    <div class="calendar-nav">
+                        <button class="btn">View Full Calendar</button>
+                    </div>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-day-header">Sun</div>
+                    <div class="calendar-day-header">Mon</div>
+                    <div class="calendar-day-header">Tue</div>
+                    <div class="calendar-day-header">Wed</div>
+                    <div class="calendar-day-header">Thu</div>
+                    <div class="calendar-day-header">Fri</div>
+                    <div class="calendar-day-header">Sat</div>
+                    
+                    <!-- Calendar days would be dynamically generated in a real implementation -->
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <div class="calendar-day">31</div>
+                    <div class="calendar-day has-event">1</div>
+                    <div class="calendar-day">2</div>
+                    
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day has-event">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day event-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day has-event">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About EweCulture</h3>
+                    <p>Dedicated to preserving and promoting the rich cultural heritage of the Ewe people of Ghana and beyond.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                        <li><a href="language.html">Language</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@eweculture.com</p>
+                    <p>Phone: +233 24 123 4567</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 EweCulture. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery and Slick Carousel JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.highlight-slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 5000
+            });
+        });
+    </script>
+</body>
+</html>

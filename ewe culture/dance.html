@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ewe Traditional Dances - Ghana's Vibrant Cultural Heritage</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #006b3f; /* Ghana green */
+            --secondary-color: #fcd116; /* Ghana yellow */
+            --accent-color: #ce1126; /* Ghana red */
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 107, 63, 0.9);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .active {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+        
+        .page-title {
+            margin-top: 60px;
+        }
+        
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            color: #ddd;
+        }
+        
+        .breadcrumb li a {
+            color: var(--secondary-color);
+        }
+        
+        /* Dance Intro */
+        .dance-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        /* Dance Types Section */
+        .dance-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .dance-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .dance-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .dance-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .dance-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .dance-info {
+            padding: 25px;
+        }
+        
+        .dance-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .dance-info .origin {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .dance-info .origin i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        /* Dance Features Section */
+        .features-section {
+            background: linear-gradient(rgba(0, 107, 63, 0.9), rgba(0, 107, 63, 0.9)), url('https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .features-section .section-title {
+            color: white;
+        }
+        
+        .features-section .section-title:after {
+            background: var(--secondary-color);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* Instruments Section */
+        .instruments-section {
+            background-color: white;
+        }
+        
+        .instruments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .instrument-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .instrument-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .instrument-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .instrument-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .instrument-card:hover .instrument-img img {
+            transform: scale(1.1);
+        }
+        
+        .instrument-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .instrument-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Ewe<span>Culture</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="dance.html" class="active">Dance</a></li>
+                <li><a href="language.html">Language</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header>
+        <div class="page-title">
+            <h1>Ewe Traditional Dances</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Dance</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Dance Intro -->
+    <section class="dance-intro-section">
+        <div class="container">
+            <div class="dance-intro">
+                <h2 class="section-title">The Rhythm of Our Heritage</h2>
+                <p>Ewe traditional dances are vibrant expressions of cultural identity, history, and spirituality. These dances, accompanied by complex polyrhythmic drumming, serve as communication, celebration, and preservation of Ewe traditions. Each dance has its unique movements, meanings, and occasions for performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Dance Types -->
+    <section class="dance-types-section">
+        <div class="container">
+            <h2 class="section-title">Major Ewe Dances</h2>
+            <div class="dance-types">
+                <!-- Agbadza -->
+                <div class="dance-card">
+                    <div class="dance-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="dance-info">
+                        <h3>Agbadza</h3>
+                        <div class="origin">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Anlo Ewe, Volta Region</span>
+                        </div>
+                        <p>The most popular Ewe dance, performed at social gatherings and funerals. Characterized by graceful arm movements and intricate footwork synchronized with the drum rhythms. Originally a war dance, now a celebration of life and community.</p>
+                        <a href="#" class="btn">Learn the Steps</a>
+                    </div>
+                </div>
+                
+                <!-- Borborbor -->
+                <div class="dance-card">
+                    <div class="dance-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="dance-info">
+                        <h3>Borborbor</h3>
+                        <div class="origin">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Central Ewe Areas</span>
+                        </div>
+                        <p>A high-energy dance characterized by fast footwork and hip movements. Often performed at celebrations and political rallies. Features call-and-response singing with lively drumming patterns that encourage audience participation.</p>
+                        <a href="#" class="btn">Learn the Steps</a>
+                    </div>
+                </div>
+                
+                <!-- Atsiagbekor -->
+                <div class="dance-card">
+                    <div class="dance-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="dance-info">
+                        <h3>Atsiagbekor</h3>
+                        <div class="origin">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Anlo Ewe, Volta Region</span>
+                        </div>
+                        <p>Also known as Atsia, this dance features precise, stylized movements that mimic daily activities and tell stories. Performed mostly by women, it emphasizes graceful arm and hand movements with subtle footwork.</p>
+                        <a href="#" class="btn">Learn the Steps</a>
+                    </div>
+                </div>
+                
+                <!-- Gahu -->
+                <div class="dance-card">
+                    <div class="dance-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="dance-info">
+                        <h3>Gahu</h3>
+                        <div class="origin">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Southern Ewe Areas</span>
+                        </div>
+                        <p>A social dance adopted from neighboring cultures but fully Ewe in its current form. Features a circular formation with dancers moving counterclockwise. The dance builds in intensity as the drumming becomes more complex.</p>
+                        <a href="#" class="btn">Learn the Steps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dance Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Characteristics of Ewe Dance</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-drum"></i>
+                    <h3>Polyrhythmic Foundation</h3>
+                    <p>Ewe dances are built on complex interlocking rhythms played by an ensemble of drums, bells, and rattles that create a rich musical tapestry.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Communal Participation</h3>
+                    <p>Dancing is rarely solo - it's a communal activity where everyone participates according to their ability, age, and role in the community.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-history"></i>
+                    <h3>Historical Narrative</h3>
+                    <p>Many dances preserve historical events, migration stories, and cultural values through their movements and accompanying songs.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-praying-hands"></i>
+                    <h3>Spiritual Connection</h3>
+                    <p>Dances serve as bridges between the physical and spiritual worlds, especially during festivals and rituals honoring ancestors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dance Instruments -->
+    <section class="instruments-section">
+        <div class="container">
+            <h2 class="section-title">Dance Instruments</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card">
+                    <div class="instrument-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gankogui">
+                    </div>
+                    <div class="instrument-info">
+                        <h3>Gankogui</h3>
+                        <p>The double bell that provides the timeline and foundational rhythm for all Ewe dances and music.</p>
+                    </div>
+                </div>
+                <div class="instrument-card">
+                    <div class="instrument-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Atsimevu">
+                    </div>
+                    <div class="instrument-info">
+                        <h3>Atsimevu</h3>
+                        <p>The master drum that leads the ensemble and "talks" to the dancers through its varied tones and rhythms.</p>
+                    </div>
+                </div>
+                <div class="instrument-card">
+                    <div class="instrument-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sogo">
+                    </div>
+                    <div class="instrument-info">
+                        <h3>Sogo</h3>
+                        <p>The middle-range drum that supports the master drum and interacts with the dancers.</p>
+                    </div>
+                </div>
+                <div class="instrument-card">
+                    <div class="instrument-img">
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Axatse">
+                    </div>
+                    <div class="instrument-info">
+                        <h3>Axatse</h3>
+                        <p>The gourd rattle that adds texture to the rhythm and is often played by singers and dancers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About EweCulture</h3>
+                    <p>Dedicated to preserving and promoting the rich cultural heritage of the Ewe people of Ghana and beyond.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                        <li><a href="dance.html">Dance</a></li>
+                        <li><a href="language.html">Language</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@eweculture.com</p>
+                    <p>Phone: +233 24 123 4567</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 EweCulture. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

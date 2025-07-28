@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Ewe People - Ghana's Vibrant Culture</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #006b3f; /* Ghana green */
+            --secondary-color: #fcd116; /* Ghana yellow */
+            --accent-color: #ce1126; /* Ghana red */
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 107, 63, 0.9);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .page-title {
+            margin-top: 60px;
+        }
+        
+        .page-title h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            color: #ddd;
+        }
+        
+        .breadcrumb li a {
+            color: var(--secondary-color);
+        }
+        
+        /* About Content */
+        .about-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .about-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .about-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-card h3 i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .history-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .history-timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Values Section */
+        .values-section {
+            background: linear-gradient(rgba(0, 107, 63, 0.9), rgba(0, 107, 63, 0.9)), url('https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .values-section .section-title {
+            color: white;
+        }
+        
+        .values-section .section-title:after {
+            background: var(--secondary-color);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .value-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .history-timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Ewe<span>Culture</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="language.html">Language</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header>
+        <div class="page-title">
+            <h1>About the Ewe People</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>About</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- About Intro -->
+    <section class="about-intro-section">
+        <div class="container">
+            <div class="about-intro">
+                <h2 class="section-title">Our Rich Heritage</h2>
+                <p>The Ewe people are an ethnic group primarily located in southeastern Ghana, southern Togo, and southwestern Benin. With a population of about 6 million, we are known for our rich cultural heritage, vibrant festivals, and unique language that has been preserved through generations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Grid -->
+    <section class="about-grid-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3><i class="fas fa-globe-africa"></i> Geography</h3>
+                    <p>The Ewe people primarily inhabit the Volta Region of Ghana, southern Togo, and parts of Benin. Our traditional lands stretch from the Atlantic coast to inland areas, featuring diverse ecosystems including coastal plains, lagoons, and forested highlands.</p>
+                </div>
+                <div class="about-card">
+                    <h3><i class="fas fa-users"></i> Population</h3>
+                    <p>With approximately 6 million people, the Ewe constitute about 11% of Ghana's population and are one of the major ethnic groups in Togo. Our communities are organized into clans and villages, each with distinct traditions.</p>
+                </div>
+                <div class="about-card">
+                    <h3><i class="fas fa-language"></i> Language</h3>
+                    <p>Ewe (Eʋegbe) is a Niger-Congo language with several dialects. It's a tonal language with a rich oral tradition, proverbs, and storytelling culture. The language serves as a strong unifying factor among Ewe people worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section class="history-section">
+        <div class="container">
+            <h2 class="section-title">Our Historical Journey</h2>
+            <div class="history-timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Origins in Notsie (12th-15th Century)</h3>
+                        <p>The Ewe trace their origins to the ancient city of Notsie in present-day Togo, where they lived under the rule of King Agokoli. Oral traditions tell of our migration from Notsie due to oppressive rule.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Great Migration (15th-17th Century)</h3>
+                        <p>Between the 15th and 17th centuries, the Ewe people migrated westward from Notsie in several groups, settling in their current locations in Ghana, Togo, and Benin. This period saw the establishment of many Ewe states.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Colonial Era (1884-1957)</h3>
+                        <p>The Ewe lands were divided between German Togoland and British Gold Coast in 1884. After World War I, this division continued under British and French administration, creating a lasting division of Ewe territory.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Post-Independence (1957-Present)</h3>
+                        <p>After Ghana's independence in 1957, Ewe people have played significant roles in national development while maintaining strong cultural identity. Today, Ewe communities thrive both in Africa and the diaspora.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Values -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Core Cultural Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Communalism</h3>
+                    <p>The Ewe value community over individualism, with extended family systems and mutual support networks forming the bedrock of society.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-respect"></i>
+                    <h3>Respect for Elders</h3>
+                    <p>Elders are revered as custodians of wisdom and tradition. Their guidance is sought in all important community matters.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-drum"></i>
+                    <h3>Music & Dance</h3>
+                    <p>Music and dance are integral to Ewe life, serving as communication, education, and preservation of history and values.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-hand-holding-water"></i>
+                    <h3>Harmony with Nature</h3>
+                    <p>The Ewe maintain a deep spiritual connection with the natural world, seen in our agricultural practices and environmental stewardship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About EweCulture</h3>
+                    <p>Dedicated to preserving and promoting the rich cultural heritage of the Ewe people of Ghana and beyond.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="festivals.html">Festivals</a></li>
+                        <li><a href="language.html">Language</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@eweculture.com</p>
+                    <p>Phone: +233 24 123 4567</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 EweCulture. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
